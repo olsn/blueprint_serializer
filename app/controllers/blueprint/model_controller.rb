@@ -1,4 +1,4 @@
-class Blueprint::ModelsController < ApplicationController
+class Blueprint::ModelController < ApplicationController
 	def get_schema
         @schema = schema_for_model params[:model_name]
         render json: @schema
