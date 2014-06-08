@@ -6,7 +6,7 @@ require "blueprint_serializer/version"
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
   s.name        = "blueprint_serializer"
-  s.version     = SchemaSerializer::VERSION
+  s.version     = BlueprintSerializer::VERSION
   s.authors     = ["Olaf Horstmann"]
   s.email       = ["pure.onh@gmail.com"]
   s.homepage    = "indiegamr.com"
