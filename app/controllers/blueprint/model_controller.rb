@@ -1,5 +1,5 @@
 class Blueprint::ModelController < ApplicationController
-	def get_schema
+    def get_schema
         @schema = schema_for_model params[:model_name]
         render json: @schema
     end
@@ -8,7 +8,7 @@ class Blueprint::ModelController < ApplicationController
         model = class_from_string modelName
 
         if model == nil
-        	return {:error => :model_not_found}
+            return {:error => :model_not_found}
         end
 
         columns = { :attributes => {} }
@@ -32,6 +32,7 @@ class Blueprint::ModelController < ApplicationController
                 current_column[:association_name] = association.name
                 current_column[:class_name] = association.class_name
                 current_column[:plural_name] = association.plural_name
+                current_column[:foreign_key] = association.foreign_key
                 current_column[:macro] = association.macro
 
                 if association.through_reflection != nil
