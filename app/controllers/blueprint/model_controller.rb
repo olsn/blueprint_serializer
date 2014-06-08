@@ -19,26 +19,22 @@ class Blueprint::ModelController < ApplicationController
         model.reflect_on_all_associations.each do |association|
             if columns[:attributes].has_key? association.foreign_key and association.foreign_key != nil
                 current_column = columns[:attributes][association.foreign_key]
-                current_column[:association_name] = association.name
-                current_column[:class_name] = association.class_name
-                current_column[:plural_name] = association.plural_name
-                current_column[:macro] = association.macro
             else
-                if !columns.has_key? association.macro
-                    columns[association.macro] = {}
-                end
-                macro_column = columns[association.macro]
-                current_column = macro_column[association.name] = {}
-                current_column[:association_name] = association.name
-                current_column[:class_name] = association.class_name
-                current_column[:plural_name] = association.plural_name
-                current_column[:foreign_key] = association.foreign_key
-                current_column[:macro] = association.macro
+                current_column = columns[:attributes][association.name] = {}
+                current_column[:name] = association.name
+
 
                 if association.through_reflection != nil
                     current_column[:through] = association.through_reflection.name
                 end
             end
+
+            current_column[:association_name] = association.name
+            current_column[:class_name] = association.class_name
+            current_column[:plural_name] = association.plural_name
+            current_column[:foreign_key] = association.foreign_key
+            current_column[:macro] = association.macro
+
         end
 
         columns
