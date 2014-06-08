@@ -32,9 +32,11 @@ class Blueprint::ModelController < ApplicationController
             current_column[:association_name] = association.name
             current_column[:class_name] = association.class_name
             current_column[:plural_name] = association.plural_name
-            current_column[:foreign_key] = association.foreign_key
-            current_column[:primary_key] = association.primary_key
             current_column[:macro] = association.macro
+            current_column[:foreign_key] = association.foreign_key
+            if defined? association.primary_key
+                current_column[:primary_key] = association.primary_key
+            end
 
         end
 
