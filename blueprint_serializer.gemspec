@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = BlueprintSerializer::VERSION
   s.authors     = ["Olaf Horstmann"]
   s.email       = ["pure.onh@gmail.com"]
-  s.homepage    = "indiegamr.com"
+  s.homepage    = "http://indiegamr.com"
   s.summary     = "Add the ability to output a serialization of any Model to json."
   s.description = "Add the ability to output a serialization of any Model to json."
 
